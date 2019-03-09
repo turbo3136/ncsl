@@ -80,6 +80,21 @@ def parse_authors_add(law_text_list):
         return
 
 
+def count_add_author_party(law_text_list):
+    add_authors_list = parse_authors_add(law_text_list)
+    ret = {'D': 0, 'R': 0, 'I': 0, 'Other': 0}
+    try:
+        for author_dict in add_authors_list:
+            if author_dict['party'] in ret:
+                ret[author_dict['party']] += 1
+            else:
+                ret['Other'] += 1
+    except TypeError:
+        return
+
+    return ret
+
+
 def parse_topics(law_text_list):
     return parse_by_value(law_text_list, TOPICS_ANCHOR, index_increment=1)
 

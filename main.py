@@ -62,6 +62,7 @@ def main():
             'author': parse_helpers.parse_author(law_text_list),
             'party': parse_helpers.parse_party(law_text_list),
             'add_authors': parse_helpers.parse_authors_add(law_text_list),
+            'add_author_party_count': parse_helpers.count_add_author_party(law_text_list),
             'topics': parse_helpers.parse_topics(law_text_list),
         }
         parsed_laws.append(parsed_law)
